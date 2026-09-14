@@ -1,0 +1,22 @@
+# Build artifacts
+build/
+bin/
+*.o
+*.out
+*.exe
+*.dSYM/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile.cmake
+
+# Python artifacts
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
