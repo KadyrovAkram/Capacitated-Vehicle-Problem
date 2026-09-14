@@ -51,10 +51,12 @@ Let an auxiliary graph $H = (\mathcal{V}_H, \mathcal{A}_H)$ be constructed where
 Because $H$ is a topological Directed Acyclic Graph, the optimal splitting corresponds to the single-source shortest path from node $0$ to node $N$:
 
 $$DP[0] = 0$$
-$$DP[j] = \min_{\substack{0 \le i < j \\ \sum_{k=i+1}^j d_{a_k} \le Q}} \Big\{ DP[i] + W(i, j) \Big\} \quad \forall j \in \{1, \dots, N\}$$
+
+$$DP[j] = \min_{0 \le i < j, \; \sum_{k=i+1}^j d_{a_k} \le Q} \left[ DP[i] + W(i, j) \right] \quad \forall j \in \{1, \dots, N\}$$
 
 With predecessor tracking:
-$$\pi(j) = \arg\min_{\substack{0 \le i < j \\ \sum_{k=i+1}^j d_{a_k} \le Q}} \Big\{ DP[i] + W(i, j) \Big\}$$
+
+$$\pi(j) = \arg\min_{0 \le i < j, \; \sum_{k=i+1}^j d_{a_k} \le Q} \left[ DP[i] + W(i, j) \right]$$
 
 ### Theoretical Complexity
 - **Time Complexity**: If $B = \max \{ m : \sum_{k=1}^m d_{(k)} \le Q \}$ denotes the maximum number of consecutive customers that fit in a vehicle, the inner loop explores at most $B$ arcs. Thus, execution time is bounded by:

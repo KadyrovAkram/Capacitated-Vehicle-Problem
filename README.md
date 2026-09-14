@@ -56,7 +56,8 @@ By constructing a Directed Acyclic Graph (DAG) where nodes $0 \dots N$ represent
 
 The optimal partition is determined by the **Bellman Shortest Path Recurrence**:
 $$DP[0] = 0$$
-$$DP[j] = \min_{\substack{0 \le i < j \\ \sum_{k=i+1}^j d_{a_k} \le Q}} \Big\{ DP[i] + W(i, j) \Big\}$$
+
+$$DP[j] = \min_{0 \le i < j, \; \sum_{k=i+1}^j d_{a_k} \le Q} \left[ DP[i] + W(i, j) \right]$$
 
 For complete derivations and Miller-Tucker-Zemlin (MTZ) constraints, see [mathematical_formulation.md](docs/mathematical_formulation.md).
 
